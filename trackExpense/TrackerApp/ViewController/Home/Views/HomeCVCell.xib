@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeCVCell" customModule="TrackerApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="209"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="372" height="209"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1W-vf-yeH">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="171.66666666666666"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="FiK-II-hLt">
+                                <rect key="frame" x="0.0" y="0.0" width="372" height="171.66666666666666"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="m_silver"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FiK-II-hLt" secondAttribute="trailing" id="1Dq-X5-90M"/>
+                            <constraint firstAttribute="bottom" secondItem="FiK-II-hLt" secondAttribute="bottom" id="Efv-r7-2yA"/>
+                            <constraint firstItem="FiK-II-hLt" firstAttribute="leading" secondItem="w1W-vf-yeH" secondAttribute="leading" id="HPh-dU-Jdo"/>
+                            <constraint firstItem="FiK-II-hLt" firstAttribute="top" secondItem="w1W-vf-yeH" secondAttribute="top" id="xU7-mi-L4z"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Expense Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BU-yI-SSj">
+                        <rect key="frame" x="20" y="176.66666666666666" width="352" height="27.333333333333343"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27.333333333333343" id="4zG-F5-0zd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
+                        <color key="textColor" name="m_black"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3BU-yI-SSj" secondAttribute="trailing" id="Ki6-vU-LVE"/>
+                <constraint firstAttribute="trailing" secondItem="w1W-vf-yeH" secondAttribute="trailing" id="cTh-sp-HXr"/>
+                <constraint firstItem="w1W-vf-yeH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="e2f-M6-4FP"/>
+                <constraint firstItem="3BU-yI-SSj" firstAttribute="top" secondItem="w1W-vf-yeH" secondAttribute="bottom" constant="5" id="ijk-gM-ghM"/>
+                <constraint firstAttribute="bottom" secondItem="3BU-yI-SSj" secondAttribute="bottom" constant="5" id="kID-hV-gpC"/>
+                <constraint firstItem="3BU-yI-SSj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="xUL-8N-iMr"/>
+                <constraint firstItem="w1W-vf-yeH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xhm-hr-zwl"/>
+            </constraints>
+            <size key="customSize" width="372" height="209"/>
+            <connections>
+                <outlet property="imgView" destination="FiK-II-hLt" id="Qh9-Yu-H5H"/>
+            </connections>
+            <point key="canvasLocation" x="375.57251908396944" y="44.718309859154935"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Background1" width="375" height="271"/>
+        <namedColor name="m_black">
+            <color red="0.072999998927116394" green="0.072999998927116394" blue="0.072999998927116394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_silver">
+            <color red="0.86299997568130493" green="0.86299997568130493" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

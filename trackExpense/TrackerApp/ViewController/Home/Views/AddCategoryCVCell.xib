@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AddCategoryCVCell" customModule="TrackerApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="159" height="148"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="159" height="148"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Y8-jr-wUj">
+                        <rect key="frame" x="5" y="5" width="149" height="138"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7Rf-8R-zgm">
+                                <rect key="frame" x="59.666666666666671" y="56.333333333333314" width="30" height="25.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="MFh-4e-QEk"/>
+                                    <constraint firstAttribute="height" constant="30" id="RUO-pa-zHP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="m_white"/>
+                        <constraints>
+                            <constraint firstItem="7Rf-8R-zgm" firstAttribute="centerY" secondItem="5Y8-jr-wUj" secondAttribute="centerY" id="P5h-6e-1Oc"/>
+                            <constraint firstItem="7Rf-8R-zgm" firstAttribute="centerX" secondItem="5Y8-jr-wUj" secondAttribute="centerX" id="RPg-D7-S2T"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="5Y8-jr-wUj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="JsW-42-I8x"/>
+                <constraint firstAttribute="trailing" secondItem="5Y8-jr-wUj" secondAttribute="trailing" constant="5" id="Jz5-VY-fG7"/>
+                <constraint firstItem="5Y8-jr-wUj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="SFj-2V-nAS"/>
+                <constraint firstAttribute="bottom" secondItem="5Y8-jr-wUj" secondAttribute="bottom" constant="5" id="byh-D1-sni"/>
+            </constraints>
+            <size key="customSize" width="159" height="148"/>
+            <point key="canvasLocation" x="64.885496183206101" y="23.239436619718312"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="m_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

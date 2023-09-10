@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Medium.ttf">
+            <string>Nunito-Medium</string>
+        </array>
+        <array key="Nunito-MediumItalic.ttf">
+            <string>Nunito-MediumItalic</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="151" id="KGk-i7-Jjw" customClass="LessonTBCell" customModule="VietEduApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="151"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="494" height="151"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQA-gj-G6W">
+                        <rect key="frame" x="10" y="10" width="474" height="131"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDU-o9-QcG">
+                                <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKh-8w-Hno">
+                                        <rect key="frame" x="5" y="5" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="15"/>
+                                        <color key="textColor" name="m_app"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="m_pink"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="1vC-pL-5K0"/>
+                                    <constraint firstAttribute="trailing" secondItem="MKh-8w-Hno" secondAttribute="trailing" constant="5" id="8QY-pD-DUa"/>
+                                    <constraint firstAttribute="height" constant="60" id="BDs-bY-xPE"/>
+                                    <constraint firstItem="MKh-8w-Hno" firstAttribute="leading" secondItem="nDU-o9-QcG" secondAttribute="leading" constant="5" id="Q87-QC-8Sy"/>
+                                    <constraint firstAttribute="bottom" secondItem="MKh-8w-Hno" secondAttribute="bottom" constant="5" id="YRZ-k3-2HL"/>
+                                    <constraint firstItem="MKh-8w-Hno" firstAttribute="top" secondItem="nDU-o9-QcG" secondAttribute="top" constant="5" id="iYG-WF-qfV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ecZ-da-kY0">
+                                <rect key="frame" x="78" y="5" width="253" height="124"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfk-de-t4k">
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="50"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="15"/>
+                                        <color key="textColor" name="m_black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpf-2Y-TC9">
+                                        <rect key="frame" x="0.0" y="60" width="0.0" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="qfg-TV-64S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-MediumItalic" family="Nunito" pointSize="15"/>
+                                        <color key="textColor" name="m_black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VQ-It-rUn">
+                                        <rect key="frame" x="0.0" y="100" width="253" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="70b-c3-orU"/>
+                                            <constraint firstAttribute="height" constant="24" id="D16-FR-zUW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="10"/>
+                                        <color key="textColor" name="m_black"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="14"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTY-l6-DfG">
+                                <rect key="frame" x="339" y="10" width="125" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GET STARTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0c-Ch-sji">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="12"/>
+                                        <color key="textColor" name="m_white"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="m_app"/>
+                                <constraints>
+                                    <constraint firstItem="y0c-Ch-sji" firstAttribute="top" secondItem="aTY-l6-DfG" secondAttribute="top" id="2oy-Zd-ItB"/>
+                                    <constraint firstItem="y0c-Ch-sji" firstAttribute="leading" secondItem="aTY-l6-DfG" secondAttribute="leading" id="9Wa-kh-m32"/>
+                                    <constraint firstAttribute="trailing" secondItem="y0c-Ch-sji" secondAttribute="trailing" id="AQg-vY-YGp"/>
+                                    <constraint firstAttribute="bottom" secondItem="y0c-Ch-sji" secondAttribute="bottom" id="BT4-78-Frk"/>
+                                    <constraint firstAttribute="width" constant="125" id="JsL-uS-PvN"/>
+                                    <constraint firstAttribute="height" constant="40" id="vE2-o2-SX4"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="m_white"/>
+                        <constraints>
+                            <constraint firstItem="aTY-l6-DfG" firstAttribute="top" secondItem="iQA-gj-G6W" secondAttribute="top" constant="10" id="2Gy-LN-kzT"/>
+                            <constraint firstItem="ecZ-da-kY0" firstAttribute="top" secondItem="iQA-gj-G6W" secondAttribute="top" constant="5" id="2PV-Oa-HwZ"/>
+                            <constraint firstItem="nDU-o9-QcG" firstAttribute="leading" secondItem="iQA-gj-G6W" secondAttribute="leading" constant="10" id="4bN-En-evt"/>
+                            <constraint firstItem="ecZ-da-kY0" firstAttribute="leading" secondItem="nDU-o9-QcG" secondAttribute="trailing" constant="8" id="Vvt-Oz-rJm"/>
+                            <constraint firstItem="nDU-o9-QcG" firstAttribute="top" secondItem="iQA-gj-G6W" secondAttribute="top" constant="10" id="cFl-lD-zXW"/>
+                            <constraint firstItem="aTY-l6-DfG" firstAttribute="leading" secondItem="ecZ-da-kY0" secondAttribute="trailing" constant="8" id="ydx-Bz-XZB"/>
+                            <constraint firstAttribute="trailing" secondItem="aTY-l6-DfG" secondAttribute="trailing" constant="10" id="z0g-y0-zzI"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="m_silver"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="iQA-gj-G6W" secondAttribute="trailing" constant="10" id="Nwv-zE-Maq"/>
+                    <constraint firstItem="iQA-gj-G6W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TCr-3B-KNd"/>
+                    <constraint firstAttribute="bottom" secondItem="iQA-gj-G6W" secondAttribute="bottom" constant="10" id="jTz-2W-Xrd"/>
+                    <constraint firstItem="iQA-gj-G6W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yMG-qs-lQZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lbAcute" destination="MKh-8w-Hno" id="J9F-9m-TAp"/>
+                <outlet property="lbGetStarted" destination="y0c-Ch-sji" id="iAW-nb-duk"/>
+                <outlet property="lbProcess" destination="3VQ-It-rUn" id="VO0-Ov-a7l"/>
+                <outlet property="lbTitle" destination="Tfk-de-t4k" id="DQc-7g-KYw"/>
+                <outlet property="lbTitleVie" destination="jpf-2Y-TC9" id="Y0x-b7-iqw"/>
+            </connections>
+            <point key="canvasLocation" x="262.59541984732823" y="26.408450704225352"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="m_app">
+            <color red="1" green="0.41999998688697815" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_black">
+            <color red="0.072999998927116394" green="0.072999998927116394" blue="0.072999998927116394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_pink">
+            <color red="1" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_silver">
+            <color red="0.86299997568130493" green="0.86299997568130493" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

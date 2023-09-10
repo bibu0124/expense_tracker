@@ -1,0 +1,17 @@
+/* 
+  
+ .strings
+  VietEduApp
+
+  Created by duynt0124 on 07/09/2023.
+  
+*/
+"Basic Level"="Basic Level";
+"lb_AllClasses"="All Classes";
+"lb_History"="History";
+"lb_Notification"="Notification";
+"lb_Account"="Account";
+"lb_diacritics" = "Vietnamese diacritics";
+"lb_finished"= "FINISHED";
+"lb_unfinished"= "UNFINISHED";
+"lb_get_started"="GET STARTED";

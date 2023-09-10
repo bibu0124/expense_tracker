@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  VietEduApp
+
+  Created by duynt0124 on 07/09/2023.
+  
+*/
+"Basic Level"="Cấp cơ bản";
+"lb_AllClasses"="Tất cả các lớp";
+"lb_History"="Lịch sử";
+"lb_Notification"="Thông báo";
+"lb_Account"="Tài khoản";
+"lb_diacritics" = "Thanh dấu";
+"lb_finished"= "HOÀN THÀNH";
+"lb_unfinished"= "CHƯA HOÀN THÀNH";
+"lb_get_started"="BẮT ĐẦU";

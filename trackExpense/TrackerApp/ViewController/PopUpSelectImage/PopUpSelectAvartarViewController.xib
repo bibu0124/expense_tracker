@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Medium.ttf">
+            <string>Nunito-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpSelectAvartarViewController" customModule="VietEduApp" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="I59-gU-j7g" id="bv3-RW-oWc"/>
+                <outlet property="heightCollectionView" destination="Dmb-bg-EEu" id="Le7-1a-90v"/>
+                <outlet property="imageAvatar" destination="jzm-hv-fNV" id="eW0-3e-wBf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="664"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select or Upload Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5il-8d-pUp">
+                    <rect key="frame" x="20" y="44" width="209" height="23.5"/>
+                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMT-HX-xyn">
+                    <rect key="frame" x="359" y="43.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="YoG-XU-5rE"/>
+                        <constraint firstAttribute="height" constant="25" id="Yzr-sy-DpR"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="ic_close"/>
+                    <connections>
+                        <action selector="didSelectDismiss:" destination="-1" eventType="touchUpInside" id="SIB-wc-oTG"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_camera" translatesAutoresizingMaskIntoConstraints="NO" id="jzm-hv-fNV">
+                    <rect key="frame" x="152" y="107.5" width="110" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="SWZ-Ph-9xu"/>
+                        <constraint firstAttribute="width" constant="110" id="Yrf-cx-BMB"/>
+                    </constraints>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="I59-gU-j7g">
+                    <rect key="frame" x="30" y="267.5" width="354" height="110"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="Dmb-bg-EEu"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ac2-4i-dlz">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="3RM-xZ-82H"/>
+                        <outlet property="delegate" destination="-1" id="ctu-qW-T8T"/>
+                    </connections>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDz-af-otF">
+                    <rect key="frame" x="82" y="407.5" width="250" height="60"/>
+                    <color key="backgroundColor" name="m_app"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="VFf-m9-xIp"/>
+                        <constraint firstAttribute="height" constant="60" id="hnv-gU-Ky8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="15"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="SAVE">
+                        <color key="titleColor" name="m_white"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didSelectSave:" destination="-1" eventType="touchUpInside" id="Ycx-7r-Hob"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cDz-af-otF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2YU-ee-RDe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I59-gU-j7g" secondAttribute="trailing" constant="30" id="LyC-Xd-Fbm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cDz-af-otF" secondAttribute="bottom" constant="30" id="UJU-12-CM9"/>
+                <constraint firstItem="I59-gU-j7g" firstAttribute="top" secondItem="jzm-hv-fNV" secondAttribute="bottom" constant="50" id="Uub-T9-LUV"/>
+                <constraint firstItem="jzm-hv-fNV" firstAttribute="top" secondItem="5il-8d-pUp" secondAttribute="bottom" constant="40" id="X7w-NQ-rO9"/>
+                <constraint firstItem="5il-8d-pUp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="YSZ-7I-21J"/>
+                <constraint firstItem="I59-gU-j7g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="YaE-MR-Rn0"/>
+                <constraint firstItem="5il-8d-pUp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="ZeH-y9-eth"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oMT-HX-xyn" secondAttribute="trailing" constant="30" id="jeD-e0-pgF"/>
+                <constraint firstItem="jzm-hv-fNV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qVb-pK-GNn"/>
+                <constraint firstItem="cDz-af-otF" firstAttribute="top" secondItem="I59-gU-j7g" secondAttribute="bottom" constant="30" id="r09-HN-AZd"/>
+                <constraint firstItem="oMT-HX-xyn" firstAttribute="centerY" secondItem="5il-8d-pUp" secondAttribute="centerY" id="sAs-r4-Wm3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="138" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_camera" width="112" height="112"/>
+        <image name="ic_close" width="31.5" height="31.5"/>
+        <namedColor name="m_app">
+            <color red="1" green="0.41999998688697815" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="VietEduApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIET EDU" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lh-Rd-prK">
+                    <rect key="frame" x="447" y="74" width="130.5" height="36"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                    <color key="textColor" name="m_white"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_BackGroupIntro" translatesAutoresizingMaskIntoConstraints="NO" id="RiZ-tx-696">
+                    <rect key="frame" x="0.0" y="150" width="1024" height="637"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="RiZ-tx-696" secondAttribute="height" multiplier="1024:637" id="gPn-rD-TyM"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TV-UT-FCX">
+                    <rect key="frame" x="0.0" y="787" width="1024" height="579"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIETNAMESE LEARNING FUN!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLt-bu-akb">
+                            <rect key="frame" x="371.5" y="16" width="281" height="25.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best way to learn Vietnamese easily and fun !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqm-ox-d7x">
+                            <rect key="frame" x="393.5" y="53.5" width="237.5" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97o-Qx-O6T">
+                            <rect key="frame" x="20" y="107" width="984" height="60"/>
+                            <color key="backgroundColor" name="m_app"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="qbx-3g-Ah1"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="SIGN IN">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didSelectSignIn:" destination="-1" eventType="touchUpInside" id="Xn3-m4-SaA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aml-gM-HC2">
+                            <rect key="frame" x="20" y="193" width="984" height="60"/>
+                            <color key="backgroundColor" name="m_yellow"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="xtc-dF-vnB"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="SIGN UP">
+                                <color key="titleColor" name="m_black"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didSelectSignUp:" destination="-1" eventType="touchUpInside" id="Glx-S3-Zz7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="yqm-ox-d7x" firstAttribute="centerX" secondItem="7TV-UT-FCX" secondAttribute="centerX" id="ABj-WO-hYO"/>
+                        <constraint firstAttribute="trailing" secondItem="97o-Qx-O6T" secondAttribute="trailing" constant="20" id="AVS-sA-Qgd"/>
+                        <constraint firstItem="97o-Qx-O6T" firstAttribute="leading" secondItem="7TV-UT-FCX" secondAttribute="leading" constant="20" id="Fbj-gT-KRS"/>
+                        <constraint firstItem="97o-Qx-O6T" firstAttribute="centerX" secondItem="7TV-UT-FCX" secondAttribute="centerX" id="MLG-qv-9yd"/>
+                        <constraint firstAttribute="trailing" secondItem="aml-gM-HC2" secondAttribute="trailing" constant="20" id="P1d-33-2wX"/>
+                        <constraint firstItem="97o-Qx-O6T" firstAttribute="top" secondItem="yqm-ox-d7x" secondAttribute="bottom" constant="40" id="WCa-D0-1bG"/>
+                        <constraint firstItem="QLt-bu-akb" firstAttribute="top" secondItem="7TV-UT-FCX" secondAttribute="top" constant="16" id="bbe-nN-Aec"/>
+                        <constraint firstItem="yqm-ox-d7x" firstAttribute="top" secondItem="QLt-bu-akb" secondAttribute="bottom" constant="12" id="fqw-eL-hLH"/>
+                        <constraint firstItem="QLt-bu-akb" firstAttribute="centerX" secondItem="7TV-UT-FCX" secondAttribute="centerX" id="mLZ-hs-0lX"/>
+                        <constraint firstItem="aml-gM-HC2" firstAttribute="top" secondItem="97o-Qx-O6T" secondAttribute="bottom" constant="26" id="o3N-cD-beJ"/>
+                        <constraint firstItem="aml-gM-HC2" firstAttribute="leading" secondItem="7TV-UT-FCX" secondAttribute="leading" constant="20" id="wie-ZH-eVg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="m_app"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7TV-UT-FCX" secondAttribute="bottom" id="1Q2-DC-NNd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7TV-UT-FCX" secondAttribute="trailing" id="9jL-aP-kgV"/>
+                <constraint firstItem="6lh-Rd-prK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="ESC-vW-e2g"/>
+                <constraint firstItem="RiZ-tx-696" firstAttribute="top" secondItem="6lh-Rd-prK" secondAttribute="bottom" constant="40" id="c24-rg-vuD"/>
+                <constraint firstItem="7TV-UT-FCX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mr3-rn-fsP"/>
+                <constraint firstItem="6lh-Rd-prK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="r1R-GB-X9M"/>
+                <constraint firstItem="RiZ-tx-696" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wBU-Sd-Gmx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RiZ-tx-696" secondAttribute="trailing" id="xdZ-Pa-lfj"/>
+                <constraint firstItem="RiZ-tx-696" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xni-X9-oab"/>
+                <constraint firstItem="7TV-UT-FCX" firstAttribute="top" secondItem="RiZ-tx-696" secondAttribute="bottom" id="y4F-qe-DDx"/>
+            </constraints>
+            <point key="canvasLocation" x="138" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_BackGroupIntro" width="834" height="637"/>
+        <namedColor name="m_app">
+            <color red="1" green="0.41999998688697815" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_black">
+            <color red="0.072999998927116394" green="0.072999998927116394" blue="0.072999998927116394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="m_yellow">
+            <color red="1" green="0.86299997568130493" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
