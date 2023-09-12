@@ -37,14 +37,14 @@ class BaseTabbarViewController: UITabBarController ,UITabBarControllerDelegate {
     func setupTabbar() {
         
         let vc1 = BaseNavigationController(rootViewController: HomeVC())
-        vc1.tabBarItem = UITabBarItem(title: "Categories", image: #imageLiteral(resourceName: "ic_rocket_tab.pdf"), selectedImage: nil)
+        vc1.tabBarItem = UITabBarItem(title: "Categories", image: #imageLiteral(resourceName: "ic_home.pdf"), selectedImage: nil)
         
         let vc2 = BaseNavigationController(rootViewController: ExpensesVC())
-        vc2.tabBarItem = UITabBarItem(title: "Expenses", image: #imageLiteral(resourceName: "ic_class_tab.pdf"), selectedImage: nil)
+        vc2.tabBarItem = UITabBarItem(title: "Expenses", image: #imageLiteral(resourceName: "ic_transaction.pdf"), selectedImage: nil)
         
         
         let vc3 = BaseNavigationController(rootViewController: AccountProfileViewController())
-        vc3.tabBarItem = UITabBarItem(title: "Account", image: #imageLiteral(resourceName: "ic_account_tab.pdf"), selectedImage: nil)
+        vc3.tabBarItem = UITabBarItem(title: "Account", image: #imageLiteral(resourceName: "ic_user.pdf"), selectedImage: nil)
         self.viewControllers = [vc1,vc2, vc3]
     }
 }

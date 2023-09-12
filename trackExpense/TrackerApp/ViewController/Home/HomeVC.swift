@@ -161,7 +161,7 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let alert = SettingView.instanceFromNib()
                 
-        alert.show(vm: self.vm, self) { [weak self] (isRefresh) in
+        alert.show(self) { [weak self] (isRefresh) in
             guard let self = self else { return }
             if isRefresh!{
                 vm.fetchExpenseCategories(completion: { [weak self]  categories in

@@ -21,6 +21,9 @@
         <array key="Nunito-MediumItalic.ttf">
             <string>Nunito-MediumItalic</string>
         </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -35,35 +38,35 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ab-5e-EIV">
                         <rect key="frame" x="20" y="10" width="725" height="145"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hhX-Sq-gTE">
-                                <rect key="frame" x="10" y="10" width="705" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hhX-Sq-gTE">
+                                <rect key="frame" x="10" y="10" width="705" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBs-Sp-tQP">
-                                        <rect key="frame" x="0.0" y="0.0" width="705" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" distribution="equalCentering" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JBs-Sp-tQP">
+                                        <rect key="frame" x="0.0" y="0.0" width="705" height="80"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-C5-pVV">
-                                                <rect key="frame" x="0.0" y="0.0" width="705" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-C5-pVV">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="15"/>
                                                 <color key="textColor" name="m_black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cof-5A-2Hi">
-                                                <rect key="frame" x="705" y="0.0" width="0.0" height="50"/>
-                                                <fontDescription key="fontDescription" name="Nunito-MediumItalic" family="Nunito" pointSize="12"/>
-                                                <color key="textColor" name="m_black"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cof-5A-2Hi">
+                                                <rect key="frame" x="705" y="0.0" width="0.0" height="80"/>
+                                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="15"/>
+                                                <color key="textColor" name="m_app"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-v7-CQC">
-                                        <rect key="frame" x="0.0" y="50" width="0.0" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-v7-CQC">
+                                        <rect key="frame" x="0.0" y="80" width="705" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Medium" family="Nunito" pointSize="15"/>
                                         <color key="textColor" name="m_black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8Z-94-SwH">
-                                        <rect key="frame" x="0.0" y="50" width="0.0" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="Nunito-MediumItalic" family="Nunito" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8Z-94-SwH">
+                                        <rect key="frame" x="0.0" y="80" width="705" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Nunito-MediumItalic" family="Nunito" pointSize="15"/>
                                         <color key="textColor" name="m_black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -105,14 +108,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxV-Hx-njc">
+                                <rect key="frame" x="685" y="105" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="6Hl-Bh-Mvc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Ahw-Xd-5am"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="mO7-1b-rMR"/>
+                                    <constraint firstAttribute="height" constant="30" id="ovy-dz-7Xa"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="ic_delete"/>
+                                <connections>
+                                    <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wpN-Lg-twd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="m_white"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KxV-Hx-njc" secondAttribute="trailing" constant="10" id="ALN-Sx-slv"/>
                             <constraint firstItem="hhX-Sq-gTE" firstAttribute="leading" secondItem="0Ab-5e-EIV" secondAttribute="leading" constant="10" id="esJ-jI-7HO"/>
                             <constraint firstAttribute="bottom" secondItem="rqr-d8-bAu" secondAttribute="bottom" constant="10" id="fqi-Pm-2Hb"/>
                             <constraint firstAttribute="trailing" secondItem="hhX-Sq-gTE" secondAttribute="trailing" constant="10" id="iFM-cR-s21"/>
                             <constraint firstItem="rqr-d8-bAu" firstAttribute="leading" secondItem="0Ab-5e-EIV" secondAttribute="leading" constant="10" id="lzQ-DB-h65"/>
+                            <constraint firstItem="KxV-Hx-njc" firstAttribute="top" secondItem="hhX-Sq-gTE" secondAttribute="bottom" constant="15" id="mXa-ut-1f6"/>
                             <constraint firstItem="hhX-Sq-gTE" firstAttribute="top" secondItem="0Ab-5e-EIV" secondAttribute="top" constant="10" id="sx8-uz-iVS"/>
+                            <constraint firstAttribute="bottom" secondItem="KxV-Hx-njc" secondAttribute="bottom" constant="10" id="znT-Ff-s85"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -154,6 +175,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_delete" width="64" height="64"/>
+        <namedColor name="m_app">
+            <color red="1" green="0.41999998688697815" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="m_black">
             <color red="0.072999998927116394" green="0.072999998927116394" blue="0.072999998927116394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

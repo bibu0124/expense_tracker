@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,7 +20,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountProfileViewController" customModule="VietEduApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountProfileViewController" customModule="TrackerApp" customModuleProvider="target">
             <connections>
                 <outlet property="imgAvatar" destination="Biz-lY-Ga9" id="CnO-Hj-fU5"/>
                 <outlet property="lblName" destination="aaw-0e-ZNl" id="vyl-f9-2dw"/>
@@ -52,49 +51,27 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xin chào / Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wn-le-Mou">
-                                    <rect key="frame" x="92" y="25" width="106.66666666666669" height="20.333333333333329"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wn-le-Mou">
+                                    <rect key="frame" x="92" y="25" width="36.666666666666657" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="m_black"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanh Tran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaw-0e-ZNl">
-                                    <rect key="frame" x="92" y="55.333333333333336" width="106.66666666666669" height="27.666666666666664"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaw-0e-ZNl">
+                                    <rect key="frame" x="92" y="55.333333333333343" width="288" height="0.0"/>
                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="m_black"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXP-T8-Epa">
-                                    <rect key="frame" x="230" y="25" width="140" height="50"/>
-                                    <color key="backgroundColor" red="0.98039215800000001" green="0.88235294819999999" blue="0.88235294819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="140" id="9Ch-ji-MgW"/>
-                                        <constraint firstAttribute="height" constant="50" id="uWA-xx-0iA"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Edit Profile">
-                                        <color key="titleColor" name="m_app"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="25"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="didTapEdit:" destination="-1" eventType="touchUpInside" id="UPm-9p-4uc"/>
-                                    </connections>
-                                </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" name="m_white"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="aaw-0e-ZNl" secondAttribute="trailing" constant="10" id="6A5-3N-Pmb"/>
                                 <constraint firstItem="7wn-le-Mou" firstAttribute="leading" secondItem="Biz-lY-Ga9" secondAttribute="trailing" constant="16" id="8VC-RK-yCC"/>
-                                <constraint firstItem="PXP-T8-Epa" firstAttribute="centerY" secondItem="th6-JH-3JQ" secondAttribute="centerY" id="9js-UT-LIV"/>
                                 <constraint firstItem="7wn-le-Mou" firstAttribute="centerY" secondItem="Biz-lY-Ga9" secondAttribute="centerY" constant="-15" id="DbU-x8-P2f"/>
                                 <constraint firstItem="Biz-lY-Ga9" firstAttribute="centerY" secondItem="th6-JH-3JQ" secondAttribute="centerY" id="Mrz-gb-0za"/>
                                 <constraint firstAttribute="height" constant="100" id="Pfo-iA-TH7"/>
                                 <constraint firstItem="aaw-0e-ZNl" firstAttribute="leading" secondItem="7wn-le-Mou" secondAttribute="leading" id="R2A-Ia-B1M"/>
-                                <constraint firstAttribute="trailing" secondItem="PXP-T8-Epa" secondAttribute="trailing" constant="20" id="VTk-UN-d2Q"/>
                                 <constraint firstItem="aaw-0e-ZNl" firstAttribute="top" secondItem="7wn-le-Mou" secondAttribute="bottom" constant="10" id="k4X-Z6-h7M"/>
                                 <constraint firstItem="Biz-lY-Ga9" firstAttribute="leading" secondItem="th6-JH-3JQ" secondAttribute="leading" constant="16" id="q1E-VK-iv4"/>
                             </constraints>
@@ -163,14 +140,14 @@
         <namedColor name="m_app">
             <color red="1" green="0.41999998688697815" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="m_black">
+            <color red="0.072999998927116394" green="0.072999998927116394" blue="0.072999998927116394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="m_silver">
             <color red="0.86299997568130493" green="0.86299997568130493" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="m_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

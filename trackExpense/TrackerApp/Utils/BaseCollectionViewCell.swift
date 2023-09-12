@@ -16,3 +16,13 @@ class BaseCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 }
+
+class BaseTableViewCell: UITableViewCell {
+    var callBackWithAction: ((_ action: Int?, _ value: Any?) -> ())?
+    var callBackWithAction2: ((_ action: Int?, _ value: Any? , _ value: Any?) -> ())?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+}

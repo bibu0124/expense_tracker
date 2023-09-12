@@ -43,6 +43,8 @@ class SettingView: UIView, UITextFieldDelegate {
     var typeView: TypeView = .kCategory
     var vc: UIViewController?
     var date = Date()
+    var categoryName: String?
+    var editExpense: Expense?
     //MARK: - SELF
     
     class func instanceFromNib() -> SettingView {
@@ -50,7 +52,7 @@ class SettingView: UIView, UITextFieldDelegate {
     }
     
     
-    func show(typeView: TypeView = .kCategory , vm: ExpenseCategoriesViewModel? = nil, vm_: ExpenseViewModel? = nil,_ viewController: UIViewController? ,dismissHandler : ((_ refresh : Bool?) -> ())?) {
+    func show(typeView: TypeView = .kCategory, vm_: ExpenseViewModel? = nil,_ viewController: UIViewController? ,dismissHandler : ((_ refresh : Bool?) -> ())?) {
         guard let topView = UIApplication.shared.keyWindow else {
             return
         }
@@ -65,10 +67,25 @@ class SettingView: UIView, UITextFieldDelegate {
         btnAction.setTitle("Add", for: .normal)
         self.dismissAction = nil
         self.dismissAction = dismissHandler
-        self.vm = vm
         self.vm_ = vm_
         self.vc = viewController
         self.typeView = typeView
+        
+        if let editExpense = editExpense{
+            self.lbTitle.text = "Expense"
+            self.tfTille.text = editExpense.title
+            self.tfDate.text = editExpense.date.string(withFormat: DATE_TIME_FORMAT)
+            self.tfDescription.text = editExpense.notes
+            self.tfPrice.text = "\(editExpense.amount)"
+            self.tfCategory.text = editExpense.category
+            btnAction.setTitle("Edit", for: .normal)
+            //self.tfDate.text = editExpense.
+        }
+        if let categoryName = categoryName{
+            self.tfCategory.text = categoryName
+            self.tfCategory.isUserInteractionEnabled = false
+        }
+        
         topView.addSubview(self)
         self.transform = self.transform.scaledBy(x: 0.3, y: 0.3)
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { [weak self] in
@@ -91,37 +108,31 @@ class SettingView: UIView, UITextFieldDelegate {
             print("Failed to get ExpenseCategoriesViewModel")
             return
         }
-        vm = ExpenseCategoriesViewModel()
-        let alertController = UIAlertController(title: "Select a Category", message: nil, preferredStyle: .actionSheet)
-        vm = ExpenseCategoriesViewModel()
-        vm?.fetchExpenseCategories(completion: { [weak self]  categories in
-            guard let self = self else { return }
-            for category in categories {
-                let categoryAction = UIAlertAction(title: category.name, style: .default) { [weak self] _ in
-                    // Handle the selected category
-                    self?.tfCategory.text = category.name
+        if let categoryName = categoryName{
+            
+        }else{
+            vm = ExpenseCategoriesViewModel()
+            let alertController = UIAlertController(title: "Select a Category", message: nil, preferredStyle: .actionSheet)
+            vm?.fetchExpenseCategories(completion: { [weak self]  categories in
+                guard let self = self else { return }
+                for category in categories {
+                    let categoryAction = UIAlertAction(title: category.name, style: .default) { [weak self] _ in
+                        // Handle the selected category
+                        self?.tfCategory.text = category.name
+                    }
+                    alertController.addAction(categoryAction)
                 }
-                alertController.addAction(categoryAction)
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            vc.present(alertController, animated: true, completion: nil)
-            
-        })
-        
-        
-        
-        
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                vc.present(alertController, animated: true, completion: nil)
+                
+            })
+        }
     }
     
     @IBAction func didTouchBtnDismiss(_ sender: Any) {
         if self.dismissAction != nil {
-//            if let price = tfPrice.text{
-//                let pri = Double(price) ?? 0
-//                self.dismissAction!(true)
-//                self.removeFromSuperview()
-//            }
             if typeView == .kCategory{
                 addNewCategory()
             }else{
@@ -131,8 +142,8 @@ class SettingView: UIView, UITextFieldDelegate {
     }
     
     func addNewCategory(){
-        guard let vm = vm, let vc = vc else{
-            print("Failed to get ExpenseCategoriesViewModel")
+        guard let vc = vc else{
+            print("Failed to get vc")
             return
         }
         guard let title = tfTille.text, !title.isEmpty else{
@@ -141,7 +152,7 @@ class SettingView: UIView, UITextFieldDelegate {
             return
         }
         
-        vm.createExpenseCategory(name: title) { error in
+        ExpenseCategoriesViewModel().createExpenseCategory(name: title) { error in
             if let error = error {
                 // Handle the error
                 vc.showAlert(title: kErrorTitle, message: "Category '\(title)' already exists")
@@ -184,17 +195,30 @@ class SettingView: UIView, UITextFieldDelegate {
         let dateText = tfDate.text ?? "2023-09-01"
         let date = dateFormatter.date(from: dateText) ?? Date()
         
-        
-        vm.createExpense(title: title, amount: amount, category: tfCategory.text ?? "", date: date, notes: notes) { error in
-            if let error = error {
-                // Handle the error
-                vc.showAlert(title: kNotificationTitle, message: error.localizedDescription)
-                print("error.localizedDescription: \(error.localizedDescription)")
-            } else {
-                self.dismissAction!(true)
-                self.removeFromSuperview()
+        if let editExpense = editExpense{
+            vm.updateExpense(expenseId: editExpense.id, title: title, amount: amount, category: tfCategory.text ?? "", date: date, notes: notes) { error in
+                if let error = error {
+                    // Handle the error
+                    vc.showAlert(title: kNotificationTitle, message: error.localizedDescription)
+                    print("error.localizedDescription: \(error.localizedDescription)")
+                } else {
+                    self.dismissAction!(true)
+                    self.removeFromSuperview()
+                }
+            }
+        }else{
+            vm.createExpense(title: title, amount: amount, category: tfCategory.text ?? "", date: date, notes: notes) { error in
+                if let error = error {
+                    // Handle the error
+                    vc.showAlert(title: kNotificationTitle, message: error.localizedDescription)
+                    print("error.localizedDescription: \(error.localizedDescription)")
+                } else {
+                    self.dismissAction!(true)
+                    self.removeFromSuperview()
+                }
             }
         }
+        
         
         
     }

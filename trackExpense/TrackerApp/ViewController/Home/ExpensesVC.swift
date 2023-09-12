@@ -22,18 +22,6 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             tableView.dataSource = self
             
             tableView.register(nibWithCellClass: ExpenseTBCell.self)
-//            tableView.crHeadRefresh {
-//                self.callAPI()
-//            }
-//            tableView.crFootRefresh {
-//                if self.datas.count < self.total {
-//                    self.page += 1
-//                    self.callAPI()
-//                }else {
-//                    //self.tableView.crEndRefresh()
-//                    self.tableView.updateRefreshStatus(self.datas.count, totalPage: self.total)
-//                }
-//            }
             
             self.tableView.reloadData()
         }
@@ -41,8 +29,8 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var dataSources:[Expense] = [] {
         didSet {
-            viewEmpty.isHidden = true//self.dataSources.count == 0
-            self.tableView.reloadData()
+            groupExpenses()
+            //self.tableView.reloadData()
         }
     }
     
@@ -51,10 +39,11 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let vm = ExpenseViewModel()
     var typeSort: TypeSortExpense = .category
     var categoryName: String?
-    
+    var groupedExpenses: [String: [Expense]] = [:]
     //MARK: VIEW LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.callAPI()
     }
     
     override func viewDidLoad() {
@@ -63,9 +52,58 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Do any additional setup after loading the view.
         setupVar()
         setupUI()
-        callAPI()
+        
     }
     
+    func groupExpenses() {
+        groupedExpenses.removeAll()
+        print("sort Type in groupExpenses: \(typeSort)")
+        switch typeSort {
+        case .date:
+            // Group by date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd" // Customize the date format as needed
+            
+            for expense in dataSources {
+                let dateString = dateFormatter.string(from: expense.date)
+                
+                if var expensesForDate = groupedExpenses[dateString] {
+                    expensesForDate.append(expense)
+                    groupedExpenses[dateString] = expensesForDate
+                } else {
+                    groupedExpenses[dateString] = [expense]
+                }
+            }
+            // Sort the section keys (dates) in descending order (newest first)
+            let sortedKeys = groupedExpenses.keys.sorted { dateFormatter.date(from: $0)! > dateFormatter.date(from: $1)! }
+            groupedExpenses = Dictionary(uniqueKeysWithValues: sortedKeys.map { key in
+                return (key, groupedExpenses[key]!)
+            })
+            
+            print("groupedExpenses.count \(groupedExpenses.count)")
+            
+        case .category:
+            // Group by category
+            for expense in dataSources {
+                let category = expense.category
+
+                if var expensesForCategory = groupedExpenses[category] {
+                    expensesForCategory.append(expense)
+                    groupedExpenses[category] = expensesForCategory
+                } else {
+                    groupedExpenses[category] = [expense]
+                }
+            }
+            // Sort the section keys (categories) alphabetically
+            let sortedKeys = groupedExpenses.keys.sorted()
+            groupedExpenses = Dictionary(uniqueKeysWithValues: sortedKeys.map { key in
+                return (key, groupedExpenses[key]!)
+            })
+            print("groupedExpenses.count \(groupedExpenses.count)")
+        }
+
+        tableView.reloadData()
+    }
     //MARK: - SETUP UI & VAR
     func setupVar() {
         self.navigationItem.title = "Expenses"
@@ -77,7 +115,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let filterItem = UIBarButtonItem(title: "Sort", style: .done, target: self, action: #selector(self.filterAction))
             self.navigationItem.leftBarButtonItem = filterItem
         }
-        
+        self.typeSort = .date
         
     }
     
@@ -87,6 +125,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK - CALL API
     func callAPI() {
+        print("categoryName \(categoryName)")
         if let categoryName = categoryName{
             vm.fetchExpensesForCategory(category: categoryName) { [weak self] datas in
                 guard let self = self else{
@@ -113,13 +152,14 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: - BUTTON ACTIONS
     @objc func createAction() {
         let alert = SettingView.instanceFromNib()
-                
+        alert.categoryName = categoryName // create expense from Category's expenses screen
         alert.show(typeView: .kExpense, vm_ : self.vm, self) { (isRefresh) in
-            if isRefresh!{
-                self.vm.fetchExpenses { datas in
-                    self.dataSources =  datas
+            if let isRefresh = isRefresh{
+                if isRefresh{
+                    self.callAPI()
                 }
             }
+            
         }
         
     }
@@ -131,6 +171,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let sortByCategoryAction = UIAlertAction(title: "Category", style: .default) { _ in
             // Call a function to sort expenses by category
             self.sortExpensesByCategory()
+            
         }
         
         // Sort by Date action
@@ -150,54 +191,106 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func sortExpensesByCategory() {
-        // Sort your expenses array by category here
-        self.dataSources = self.dataSources.sorted(by: {$0.category > $1.category})
+        
+        //self.dataSources = self.dataSources.sorted(by: {$0.category < $1.category})
+        self.typeSort = .category
+        groupExpenses()
     }
 
     func sortExpensesByDate() {
-        // Sort your expenses array by date here
-        self.dataSources = self.dataSources.sorted(by: {$0.date > $1.date})
+        
+        //self.dataSources = self.dataSources.sorted(by: {$0.date > $1.date})
+        self.typeSort = .date
+        groupExpenses()
     }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSources.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withClass: ExpenseTBCell.self)
-        cell.fillData(dataSources[indexPath.row])
-        return cell
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 180
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = dataSources[indexPath.row]
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        let sectionKey = Array(groupedExpenses.keys)[indexPath.section]
+        
+        if let expensesForSection = groupedExpenses[sectionKey] {
+            let selectedExpense = expensesForSection[indexPath.row]
             
-            self.vm.deleteExpense(expenseId: self.dataSources[indexPath.row].id) { [weak self] error in
-                guard let self = self else { return }
-                if let error = error as? CustomError{
-                    self.showAlert(title: kErrorTitle, message: error.localizedDescription)
-                }else if let error = error {
-                    // Handle the error
-                    self.showAlert(title: kErrorTitle, message: error.localizedDescription)
-                    print("error.localizedDescription: \(error.localizedDescription)")
-                } else {
-                    let deletedExpense = self.dataSources.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
+            print("Selected Expense: \(selectedExpense)")
+            let alert = SettingView.instanceFromNib()
+            alert.editExpense = selectedExpense
+            alert.show(typeView: .kExpense, vm_ : self.vm, self) { (isRefresh) in
+                if let isRefresh = isRefresh{
+                    if isRefresh{
+                        self.callAPI()
+                    }
                 }
-
-                
                 
             }
+            
         }
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return groupedExpenses.keys.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionKey = Array(groupedExpenses.keys)[section]
+        return groupedExpenses[sectionKey]?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Array(groupedExpenses.keys)[section]
+    }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withClass: ExpenseTBCell.self)
+        let sectionKey = Array(groupedExpenses.keys)[indexPath.section]
+        
+        if let expensesForSection = groupedExpenses[sectionKey] {
+            let expense = expensesForSection[indexPath.row]
+            cell.fillData(expense, typeSort: self.typeSort)
+            
+            // Define a callback for the delete action
+            cell.callBackWithAction = { [weak self] (action, value) in
+                guard let self = self else {
+                    return
+                }
+                if action == 1 {
+                    self.showAlert(title: kNotificationTitle, message: "Do you want to delete this expense?", buttonTitles: ["No", "Yes"], highlightedButtonIndex: nil, completion: { (index) in
+                        if index == 1 {
+                            // User confirmed deletion
+                            self.vm.deleteExpense(expenseId: expense.id) { [weak self] error in
+                                guard let self = self else { return }
+                                if let error = error as? CustomError {
+                                    self.showAlert(title: kErrorTitle, message: error.localizedDescription)
+                                } else if let error = error {
+                                    // Handle the error
+                                    self.showAlert(title: kErrorTitle, message: error.localizedDescription)
+                                    print("error.localizedDescription: \(error.localizedDescription)")
+                                } else {
+                                    // Delete the expense from the data source and the table view
+                                    if let sectionIndex = self.groupedExpenses.keys.firstIndex(of: sectionKey) {
+                                        let sectionKey = self.groupedExpenses.keys[sectionIndex]
+                                        if var expensesForSection = self.groupedExpenses[sectionKey] {
+                                            expensesForSection.remove(at: indexPath.row)
+                                            self.groupedExpenses[sectionKey] = expensesForSection
+                                            tableView.deleteRows(at: [indexPath], with: .fade)
+                                            self.dataSources = self.dataSources.filter{$0.id != expense.id}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+        }
+        
+        return cell
+    }
+
+    
 }
 

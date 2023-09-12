@@ -62,9 +62,9 @@ class AccountProfileViewController: UIViewController {
     
     //MARK: - SETUP UI & VAR
     func setupVar() {
-        self.navigationItem.title = "ACCOUNT"
+        self.navigationItem.title = "Account"
         imgAvatar.sdImageURL(Token.shared.user?.avatar_url, placeHolder: IMG_LOGO_PLACEHOLDER)
-        lblName.text = Token.shared.user?.fullname ?? ""
+        lblName.text = FirebaseAuth.Auth.auth().currentUser?.email ?? "Duy"
     }
     
     func setupUI() {

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		746E7C942A8DCC3300991931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7C932A8DCC3300991931 /* AppDelegate.swift */; };
-		746E7C9D2A8DCC3400991931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 746E7C9C2A8DCC3400991931 /* Assets.xcassets */; };
 		746E7CA02A8DCC3400991931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 746E7C9E2A8DCC3400991931 /* LaunchScreen.storyboard */; };
 		746E7CA92A8DCC8000991931 /* BaseTabarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CA82A8DCC8000991931 /* BaseTabarViewController.swift */; };
 		746E7CAD2A8DCC8E00991931 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CAC2A8DCC8E00991931 /* Message.swift */; };
@@ -16,13 +15,6 @@
 		746E7D002A8DCC9F00991931 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CB12A8DCC9F00991931 /* UIImageView+Extension.swift */; };
 		746E7D012A8DCC9F00991931 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 746E7CB22A8DCC9F00991931 /* EmptyView.xib */; };
 		746E7D022A8DCC9F00991931 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CB32A8DCC9F00991931 /* UIView.swift */; };
-		746E7D032A8DCC9F00991931 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 746E7CB62A8DCC9F00991931 /* DropDownCell.xib */; };
-		746E7D042A8DCC9F00991931 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CB82A8DCC9F00991931 /* DPDKeyboardListener.swift */; };
-		746E7D052A8DCC9F00991931 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CB92A8DCC9F00991931 /* DPDConstants.swift */; };
-		746E7D062A8DCC9F00991931 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CBA2A8DCC9F00991931 /* DPDUIView+Extension.swift */; };
-		746E7D072A8DCC9F00991931 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CBC2A8DCC9F00991931 /* DropDown.swift */; };
-		746E7D082A8DCC9F00991931 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CBD2A8DCC9F00991931 /* DropDownCell.swift */; };
-		746E7D092A8DCC9F00991931 /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CBE2A8DCC9F00991931 /* DropDown+Appearance.swift */; };
 		746E7D0A2A8DCC9F00991931 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CBF2A8DCC9F00991931 /* UIFont+Extension.swift */; };
 		746E7D0B2A8DCC9F00991931 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CC02A8DCC9F00991931 /* EmptyView.swift */; };
 		746E7D0C2A8DCC9F00991931 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746E7CC12A8DCC9F00991931 /* UIColor.swift */; };
@@ -176,6 +168,7 @@
 		F95278572A9761E8004243EF /* HomeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95278552A9761E8004243EF /* HomeCVCell.swift */; };
 		F95278582A9761E8004243EF /* HomeCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F95278562A9761E8004243EF /* HomeCVCell.xib */; };
 		F952785A2A976A9B004243EF /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95278592A976A9B004243EF /* BaseCollectionViewCell.swift */; };
+		F970D7FC2AAF390A0041C6EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F970D7FB2AAF390A0041C6EB /* Assets.xcassets */; };
 		F9949F002AAADB6300544D7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9949EFF2AAADB6300544D7C /* GoogleService-Info.plist */; };
 		F9949F032AAAFB2300544D7C /* EnpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9949F022AAAFB2300544D7C /* EnpenseService.swift */; };
 		F9949F052AAAFE8D00544D7C /* ExpenseCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9949F042AAAFE8D00544D7C /* ExpenseCategoriesViewModel.swift */; };
@@ -199,7 +192,6 @@
 		6FF2D96FC30A492131F283E3 /* Pods-VietEduApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VietEduApp.release.xcconfig"; path = "Target Support Files/Pods-VietEduApp/Pods-VietEduApp.release.xcconfig"; sourceTree = "<group>"; };
 		746E7C902A8DCC3300991931 /* TrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		746E7C932A8DCC3300991931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		746E7C9C2A8DCC3400991931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		746E7C9F2A8DCC3400991931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		746E7CA12A8DCC3400991931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		746E7CA82A8DCC8000991931 /* BaseTabarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabarViewController.swift; sourceTree = "<group>"; };
@@ -208,13 +200,6 @@
 		746E7CB12A8DCC9F00991931 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		746E7CB22A8DCC9F00991931 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		746E7CB32A8DCC9F00991931 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		746E7CB62A8DCC9F00991931 /* DropDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
-		746E7CB82A8DCC9F00991931 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDKeyboardListener.swift; sourceTree = "<group>"; };
-		746E7CB92A8DCC9F00991931 /* DPDConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDConstants.swift; sourceTree = "<group>"; };
-		746E7CBA2A8DCC9F00991931 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DPDUIView+Extension.swift"; sourceTree = "<group>"; };
-		746E7CBC2A8DCC9F00991931 /* DropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
-		746E7CBD2A8DCC9F00991931 /* DropDownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
-		746E7CBE2A8DCC9F00991931 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DropDown+Appearance.swift"; sourceTree = "<group>"; };
 		746E7CBF2A8DCC9F00991931 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		746E7CC02A8DCC9F00991931 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		746E7CC12A8DCC9F00991931 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -369,6 +354,7 @@
 		F95278552A9761E8004243EF /* HomeCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCVCell.swift; sourceTree = "<group>"; };
 		F95278562A9761E8004243EF /* HomeCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCVCell.xib; sourceTree = "<group>"; };
 		F95278592A976A9B004243EF /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F970D7FB2AAF390A0041C6EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9949EFF2AAADB6300544D7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F9949F022AAAFB2300544D7C /* EnpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnpenseService.swift; sourceTree = "<group>"; };
 		F9949F042AAAFE8D00544D7C /* ExpenseCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoriesViewModel.swift; sourceTree = "<group>"; };
@@ -455,8 +441,8 @@
 				746E7D442A8DCCAA00991931 /* Model */,
 				746E7CB02A8DCC9F00991931 /* Extension */,
 				746E7CA72A8DCC6100991931 /* BaseApp */,
-				746E7C9C2A8DCC3400991931 /* Assets.xcassets */,
 				746E7C9E2A8DCC3400991931 /* LaunchScreen.storyboard */,
+				F970D7FB2AAF390A0041C6EB /* Assets.xcassets */,
 				746E7CA12A8DCC3400991931 /* Info.plist */,
 				746151E32A8DF3EB00211B72 /* Recovered References */,
 			);
@@ -492,7 +478,6 @@
 				746E7CB12A8DCC9F00991931 /* UIImageView+Extension.swift */,
 				746E7CB22A8DCC9F00991931 /* EmptyView.xib */,
 				746E7CB32A8DCC9F00991931 /* UIView.swift */,
-				746E7CB42A8DCC9F00991931 /* DropDown */,
 				746E7CBF2A8DCC9F00991931 /* UIFont+Extension.swift */,
 				746E7CC02A8DCC9F00991931 /* EmptyView.swift */,
 				746E7CC12A8DCC9F00991931 /* UIColor.swift */,
@@ -509,44 +494,6 @@
 				746E7CFF2A8DCC9F00991931 /* TextFieldExt.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		746E7CB42A8DCC9F00991931 /* DropDown */ = {
-			isa = PBXGroup;
-			children = (
-				746E7CB52A8DCC9F00991931 /* resources */,
-				746E7CB72A8DCC9F00991931 /* helpers */,
-				746E7CBB2A8DCC9F00991931 /* src */,
-			);
-			path = DropDown;
-			sourceTree = "<group>";
-		};
-		746E7CB52A8DCC9F00991931 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				746E7CB62A8DCC9F00991931 /* DropDownCell.xib */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
-		746E7CB72A8DCC9F00991931 /* helpers */ = {
-			isa = PBXGroup;
-			children = (
-				746E7CB82A8DCC9F00991931 /* DPDKeyboardListener.swift */,
-				746E7CB92A8DCC9F00991931 /* DPDConstants.swift */,
-				746E7CBA2A8DCC9F00991931 /* DPDUIView+Extension.swift */,
-			);
-			path = helpers;
-			sourceTree = "<group>";
-		};
-		746E7CBB2A8DCC9F00991931 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				746E7CBC2A8DCC9F00991931 /* DropDown.swift */,
-				746E7CBD2A8DCC9F00991931 /* DropDownCell.swift */,
-				746E7CBE2A8DCC9F00991931 /* DropDown+Appearance.swift */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		746E7CC22A8DCC9F00991931 /* FSPagerView */ = {
@@ -980,7 +927,6 @@
 				746E7CA02A8DCC3400991931 /* LaunchScreen.storyboard in Resources */,
 				F95277FC2A96F961004243EF /* IntroViewController.xib in Resources */,
 				746E7D752A8DCCBA00991931 /* SF-Pro-Text-Light.otf in Resources */,
-				746E7C9D2A8DCC3400991931 /* Assets.xcassets in Resources */,
 				746E7D772A8DCCBA00991931 /* SF-Pro-Text-Black.otf in Resources */,
 				84F18AE02A93071100D029C3 /* Nunito-LightItalic.ttf in Resources */,
 				746E7DAF2A8DCCD300991931 /* NoConnectionView.xib in Resources */,
@@ -993,12 +939,12 @@
 				746E7D7D2A8DCCBA00991931 /* SF-Pro-Text-Medium.otf in Resources */,
 				84F18AD82A93071100D029C3 /* Nunito-SemiBold.ttf in Resources */,
 				F9949F092AAB08E500544D7C /* AddCategoryCVCell.xib in Resources */,
+				F970D7FC2AAF390A0041C6EB /* Assets.xcassets in Resources */,
 				746E7D792A8DCCBA00991931 /* SF-Pro-Text-Ultralight.otf in Resources */,
 				84F18ADF2A93071100D029C3 /* Nunito-Italic.ttf in Resources */,
 				845BE93B2A9DAF7200990C54 /* PopUpSelectAvartarViewController.xib in Resources */,
 				746E7D7B2A8DCCBA00991931 /* SF-Pro-Text-Thin.otf in Resources */,
 				84F18AD52A93071100D029C3 /* Nunito-ExtraLightItalic.ttf in Resources */,
-				746E7D032A8DCC9F00991931 /* DropDownCell.xib in Resources */,
 				F9E05FA92AA96F2700062D84 /* Localizable.strings in Resources */,
 				84F18AD92A93071100D029C3 /* Nunito-Bold.ttf in Resources */,
 				84F18AD22A93071100D029C3 /* Nunito-Medium.ttf in Resources */,
@@ -1108,7 +1054,6 @@
 				746E7D2B2A8DCC9F00991931 /* BinaryFloatingPointExtensions.swift in Sources */,
 				F9949F082AAB08E500544D7C /* AddCategoryCVCell.swift in Sources */,
 				F9949F032AAAFB2300544D7C /* EnpenseService.swift in Sources */,
-				746E7D052A8DCC9F00991931 /* DPDConstants.swift in Sources */,
 				746E7D3F2A8DCC9F00991931 /* Number+Extension.swift in Sources */,
 				746E7CA92A8DCC8000991931 /* BaseTabarViewController.swift in Sources */,
 				746E7D0E2A8DCC9F00991931 /* FSPageViewTransformer.swift in Sources */,
@@ -1126,7 +1071,6 @@
 				746E7DA12A8DCCCA00991931 /* ConfigViewModel.swift in Sources */,
 				F942A12B2AAB6B09006F9896 /* SettingView.swift in Sources */,
 				746E7D112A8DCC9F00991931 /* FSPageViewLayout.swift in Sources */,
-				746E7D042A8DCC9F00991931 /* DPDKeyboardListener.swift in Sources */,
 				746E7D342A8DCC9F00991931 /* DecodableExtensions.swift in Sources */,
 				746E7D3C2A8DCC9F00991931 /* CollectionExtensions.swift in Sources */,
 				746E7D202A8DCC9F00991931 /* MeasurementExtensions.swift in Sources */,
@@ -1163,7 +1107,6 @@
 				746E7D922A8DCCBF00991931 /* ActionsheetPicker.swift in Sources */,
 				849D520B2A931D9F0027AC0D /* UIView+Extension.swift in Sources */,
 				746E7D932A8DCCBF00991931 /* ImagePicker.swift in Sources */,
-				746E7D072A8DCC9F00991931 /* DropDown.swift in Sources */,
 				746E7D972A8DCCBF00991931 /* Utils.swift in Sources */,
 				746E7D0D2A8DCC9F00991931 /* FSPagerView.swift in Sources */,
 				746E7D2D2A8DCC9F00991931 /* DefaultStringInterpolationExtensions.swift in Sources */,
@@ -1177,7 +1120,6 @@
 				746E7D0F2A8DCC9F00991931 /* FSPagerViewCell.swift in Sources */,
 				F952785A2A976A9B004243EF /* BaseCollectionViewCell.swift in Sources */,
 				746E7D282A8DCC9F00991931 /* ComparableExtensions.swift in Sources */,
-				746E7D092A8DCC9F00991931 /* DropDown+Appearance.swift in Sources */,
 				8448FEB82AA03DFB0022BF07 /* UINavigationControllerExtensions.swift in Sources */,
 				746E7D132A8DCC9F00991931 /* FSPagerViewObjcCompat.m in Sources */,
 				746E7CAD2A8DCC8E00991931 /* Message.swift in Sources */,
@@ -1193,7 +1135,6 @@
 				746E7D322A8DCC9F00991931 /* DictionaryExtensions.swift in Sources */,
 				746E7D1C2A8DCC9F00991931 /* NotificationCenterExtensions.swift in Sources */,
 				746E7D4E2A8DCCAA00991931 /* Token.swift in Sources */,
-				746E7D082A8DCC9F00991931 /* DropDownCell.swift in Sources */,
 				F95278082A974A8A004243EF /* HomeBodyCVCell.swift in Sources */,
 				746E7D3B2A8DCC9F00991931 /* OptionalExtensions.swift in Sources */,
 				84B1EA782A9C4D1F001DA612 /* UIImage+Extensions.swift in Sources */,
@@ -1207,7 +1148,6 @@
 				746E7D8E2A8DCCBF00991931 /* Constant.swift in Sources */,
 				84F18AB32A90BEF800D029C3 /* SignInViewController.swift in Sources */,
 				8448FEBB2AA0462C0022BF07 /* AccountProfileViewController.swift in Sources */,
-				746E7D062A8DCC9F00991931 /* DPDUIView+Extension.swift in Sources */,
 				F95277FD2A96F961004243EF /* IntroViewController.swift in Sources */,
 				F9949F282AAB1CB400544D7C /* ExpensesVC.swift in Sources */,
 				84343AD32A8E0BB100141D11 /* HBSegmentedControl.swift in Sources */,
