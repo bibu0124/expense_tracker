@@ -35,7 +35,7 @@ Before you begin, ensure you have met the following requirements:
     git clone https://github.com/bibu0124/expense_tracker
 
     2. Navigate to the project directory:
-    cd expense-tracker-app
+    cd expense_tracker/trackExpense
  
     3. Install CocoaPods if you haven't already:
     gem install cocoapods
