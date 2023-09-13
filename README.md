@@ -32,7 +32,7 @@ Before you begin, ensure you have met the following requirements:
 ## Installation
 
     1. Clone this repository to your local machine using:
-    git clone https://github.com/yourusername/expense-tracker-app.git
+    git clone https://github.com/bibu0124/expense_tracker
 
     2. Navigate to the project directory:
     cd expense-tracker-app
