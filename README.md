@@ -1,7 +1,5 @@
-# expense_tracker
+# Expense Tracker App
 ==========
-Expense Tracker App
-
 Welcome to the Expense Tracker App! This application helps you manage and keep track of your expenses efficiently. With a user-friendly interface and robust features, it simplifies the process of recording and categorizing your expenses.
 Table of Contents
 
@@ -64,7 +62,8 @@ Before you begin, ensure you have met the following requirements:
 
 The Expense Tracker App follows the Model-View-ViewModel (MVVM) architectural pattern for clean and organized code. It also uses Firebase for data storage and authentication.
 ## Screenshots
-
+![Expense Tracker](./Tracker_a.mp4)
+![Expense Tracker](./Tracker_b.mp4)
 ## Contributing
 
 Contributions are welcome! Feel free to open issues and pull requests to help improve the app.
