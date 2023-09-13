@@ -8,7 +8,12 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
-
+let defaultExpenseCategories: [Category] = [
+    Category(id: "1", name: "Food".uppercased(), hexCode: "#FF5733"),
+    Category(id: "2", name: "Transportation".uppercased(), hexCode: "#3498DB"),
+    Category(id: "3", name: "Entertainment".uppercased(), hexCode: "#FFC300"),
+    Category(id: "4", name: "Utilities".uppercased(), hexCode: "#27AE60"),
+]
 class ExpenseCategoriesViewModel: NSObject {
     private let db = Firestore.firestore()
     private let usersCollection = Firestore.firestore().collection("users")
@@ -34,7 +39,7 @@ class ExpenseCategoriesViewModel: NSObject {
                 return
             }
             
-            var fetchedCategories: [Category] = []
+            var fetchedCategories: [Category] = defaultExpenseCategories
             for document in querySnapshot?.documents ?? [] {
                 if let name = document["name"] as? String{
                     fetchedCategories.append(Category(id: document.documentID, name: name, hexCode: "FFFFFF"))
@@ -48,7 +53,7 @@ class ExpenseCategoriesViewModel: NSObject {
         }
     }
     func doesCategoryExist(name: String) -> Bool {
-        return categories.contains { model in
+        return defaultExpenseCategories.contains { model in
             return model.name.lowercased() == name.lowercased()
         }
     }
@@ -65,14 +70,18 @@ class ExpenseCategoriesViewModel: NSObject {
                 return
             }
             
-            if let existingCategory = querySnapshot?.documents.first {
+            if let existingCategory = querySnapshot?.documents.first{
                 // Category already exists, handle this case as needed
                 let categoryData = existingCategory.data()
                 if let categoryName = categoryData["name"] as? String {
                     let customError = CustomError.error(categoryName)
                     completion(customError)
                 }
-            } else {
+            }else if self.doesCategoryExist(name: name){
+                let customError = CustomError.error(name)
+                completion(customError)
+            }
+            else {
                 // Category does not exist, proceed to create it
                 let newCategoryRef = categoriesCollection.document()
                 

@@ -11,6 +11,11 @@ enum TypeSortExpense: Int{
     case category = 0
     case date = 1
 }
+struct ExpenseSection {
+    var headerTitle: String
+    var expenses: [Expense]
+}
+
 
 class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -39,7 +44,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let vm = ExpenseViewModel()
     var typeSort: TypeSortExpense = .category
     var categoryName: String?
-    var groupedExpenses: [String: [Expense]] = [:]
+    var expenseSections: [ExpenseSection] = []
     //MARK: VIEW LIFE CYCLE
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,8 +61,9 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func groupExpenses() {
-        groupedExpenses.removeAll()
+        expenseSections.removeAll()
         print("sort Type in groupExpenses: \(typeSort)")
+        
         switch typeSort {
         case .date:
             // Group by date
@@ -67,39 +73,46 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             for expense in dataSources {
                 let dateString = dateFormatter.string(from: expense.date)
                 
-                if var expensesForDate = groupedExpenses[dateString] {
-                    expensesForDate.append(expense)
-                    groupedExpenses[dateString] = expensesForDate
+                if let index = expenseSections.firstIndex(where: { $0.headerTitle == dateString }) {
+                    expenseSections[index].expenses.append(expense)
+                    // Sort the expenses in the section by date
+                    expenseSections[index].expenses.sort { $0.date > $1.date }
                 } else {
-                    groupedExpenses[dateString] = [expense]
+                    var newSection = ExpenseSection(headerTitle: dateString, expenses: [expense])
+                    // Sort the expenses in the new section by date
+                    newSection.expenses.sort { $0.date > $1.date }
+                    expenseSections.append(newSection)
                 }
             }
-            // Sort the section keys (dates) in descending order (newest first)
-            let sortedKeys = groupedExpenses.keys.sorted { dateFormatter.date(from: $0)! > dateFormatter.date(from: $1)! }
-            groupedExpenses = Dictionary(uniqueKeysWithValues: sortedKeys.map { key in
-                return (key, groupedExpenses[key]!)
-            })
             
-            print("groupedExpenses.count \(groupedExpenses.count)")
+            // Sort sections by date in descending order
+            expenseSections.sort { section1, section2 in
+                let date1 = dateFormatter.date(from: section1.headerTitle)!
+                let date2 = dateFormatter.date(from: section2.headerTitle)!
+                return date1 > date2
+            }
             
         case .category:
             // Group by category
             for expense in dataSources {
                 let category = expense.category
-
-                if var expensesForCategory = groupedExpenses[category] {
-                    expensesForCategory.append(expense)
-                    groupedExpenses[category] = expensesForCategory
+                
+                if let index = expenseSections.firstIndex(where: { $0.headerTitle == category }) {
+                    expenseSections[index].expenses.append(expense)
+                    // Sort the expenses in the section by date
+                    expenseSections[index].expenses.sort { $0.date > $1.date }
                 } else {
-                    groupedExpenses[category] = [expense]
+                    var newSection = ExpenseSection(headerTitle: category, expenses: [expense])
+                    // Sort the expenses in the new section by date
+                    newSection.expenses.sort { $0.date > $1.date }
+                    expenseSections.append(newSection)
                 }
             }
-            // Sort the section keys (categories) alphabetically
-            let sortedKeys = groupedExpenses.keys.sorted()
-            groupedExpenses = Dictionary(uniqueKeysWithValues: sortedKeys.map { key in
-                return (key, groupedExpenses[key]!)
-            })
-            print("groupedExpenses.count \(groupedExpenses.count)")
+            
+            // Sort sections alphabetically by category title
+            expenseSections.sort { section1, section2 in
+                return section1.headerTitle < section2.headerTitle
+            }
         }
 
         tableView.reloadData()
@@ -210,81 +223,64 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sectionKey = Array(groupedExpenses.keys)[indexPath.section]
+        let selectedExpense = expenseSections[indexPath.section].expenses[indexPath.row]
         
-        if let expensesForSection = groupedExpenses[sectionKey] {
-            let selectedExpense = expensesForSection[indexPath.row]
-            
-            print("Selected Expense: \(selectedExpense)")
-            let alert = SettingView.instanceFromNib()
-            alert.editExpense = selectedExpense
-            alert.show(typeView: .kExpense, vm_ : self.vm, self) { (isRefresh) in
-                if let isRefresh = isRefresh{
-                    if isRefresh{
-                        self.callAPI()
-                    }
+        print("Selected Expense: \(selectedExpense)")
+        let alert = SettingView.instanceFromNib()
+        alert.editExpense = selectedExpense
+        alert.show(typeView: .kExpense, vm_ : self.vm, self) { (isRefresh) in
+            if let isRefresh = isRefresh {
+                if isRefresh {
+                    self.callAPI()
                 }
-                
             }
-            
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return groupedExpenses.keys.count
+        return expenseSections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionKey = Array(groupedExpenses.keys)[section]
-        return groupedExpenses[sectionKey]?.count ?? 0
+        return expenseSections[section].expenses.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Array(groupedExpenses.keys)[section]
+        return expenseSections[section].headerTitle
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: ExpenseTBCell.self)
-        let sectionKey = Array(groupedExpenses.keys)[indexPath.section]
+        let expense = expenseSections[indexPath.section].expenses[indexPath.row]
+        cell.fillData(expense, typeSort: self.typeSort)
         
-        if let expensesForSection = groupedExpenses[sectionKey] {
-            let expense = expensesForSection[indexPath.row]
-            cell.fillData(expense, typeSort: self.typeSort)
-            
-            // Define a callback for the delete action
-            cell.callBackWithAction = { [weak self] (action, value) in
-                guard let self = self else {
-                    return
-                }
-                if action == 1 {
-                    self.showAlert(title: kNotificationTitle, message: "Do you want to delete this expense?", buttonTitles: ["No", "Yes"], highlightedButtonIndex: nil, completion: { (index) in
-                        if index == 1 {
-                            // User confirmed deletion
-                            self.vm.deleteExpense(expenseId: expense.id) { [weak self] error in
-                                guard let self = self else { return }
-                                if let error = error as? CustomError {
-                                    self.showAlert(title: kErrorTitle, message: error.localizedDescription)
-                                } else if let error = error {
-                                    // Handle the error
-                                    self.showAlert(title: kErrorTitle, message: error.localizedDescription)
-                                    print("error.localizedDescription: \(error.localizedDescription)")
-                                } else {
-                                    // Delete the expense from the data source and the table view
-                                    if let sectionIndex = self.groupedExpenses.keys.firstIndex(of: sectionKey) {
-                                        let sectionKey = self.groupedExpenses.keys[sectionIndex]
-                                        if var expensesForSection = self.groupedExpenses[sectionKey] {
-                                            expensesForSection.remove(at: indexPath.row)
-                                            self.groupedExpenses[sectionKey] = expensesForSection
-                                            tableView.deleteRows(at: [indexPath], with: .fade)
-                                            self.dataSources = self.dataSources.filter{$0.id != expense.id}
-                                        }
-                                    }
-                                }
+        // Define a callback for the delete action
+        cell.callBackWithAction = { [weak self] (action, value) in
+            guard let self = self else {
+                return
+            }
+            if action == 1 {
+                self.showAlert(title: kNotificationTitle, message: "Do you want to delete this expense?", buttonTitles: ["No", "Yes"], highlightedButtonIndex: nil, completion: { (index) in
+                    if index == 1 {
+                        // User confirmed deletion
+                        self.vm.deleteExpense(expenseId: expense.id) { [weak self] error in
+                            guard let self = self else { return }
+                            if let error = error as? CustomError {
+                                self.showAlert(title: kErrorTitle, message: error.localizedDescription)
+                            } else if let error = error {
+                                // Handle the error
+                                self.showAlert(title: kErrorTitle, message: error.localizedDescription)
+                                print("error.localizedDescription: \(error.localizedDescription)")
+                            } else {
+                                // Delete the expense from the data source and the table view
+                                self.expenseSections[indexPath.section].expenses.remove(at: indexPath.row)
+                                tableView.deleteRows(at: [indexPath], with: .fade)
+                                self.dataSources = self.dataSources.filter { $0.id != expense.id }
                             }
                         }
-                    })
-                }
+                    }
+                })
             }
         }
         

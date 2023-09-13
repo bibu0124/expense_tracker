@@ -187,20 +187,20 @@ class SignInViewController: UIViewController {
     
     func login(){
         guard let email = tfPhone.text, email.isNotEmpty else {
-            showAlert(title: kNotificationTitle, message: kMsgEmail) {
+            showAlert(title: kErrorTitle, message: kMsgEmail) {
                 self.tfPhone.becomeFirstResponder()
             }
             return
         }
         guard let password = tfPassword.text, !password.isWhitespace else {
-            showAlert(title: kNotificationTitle, message: kMsgEmptyPassword) {
+            showAlert(title: kErrorTitle, message: kMsgEmptyPassword) {
                 self.tfPassword.becomeFirstResponder()
             }
             return
         }
         
         guard password.count >= 6 else {
-            showAlert(title: kNotificationTitle, message: kMsgMinimumPasswordLength) {
+            showAlert(title: kErrorTitle, message: kMsgMinimumPasswordLength) {
                 self.tfPassword.becomeFirstResponder()
             }
             return
@@ -211,7 +211,7 @@ class SignInViewController: UIViewController {
             if let error = error {
                 // Handle login error
                 Utils.shared.hideLoading()
-                self.showAlert(title: kNotificationTitle, message: error.localizedDescription)
+                self.showAlert(title: kErrorTitle, message: error.localizedDescription)
             } else {
                 if let user = result?.user {
                     var token = Token()
@@ -226,34 +226,34 @@ class SignInViewController: UIViewController {
     
     func register(){
         guard let email = tfPhone.text, email.isNotEmpty else {
-            showAlert(title: kNotificationTitle, message: kMsgEmail) {
+            showAlert(title: kErrorTitle, message: kMsgEmail) {
                 self.tfPhone.becomeFirstResponder()
             }
             return
         }
         guard let password = tfPassword.text, !password.isWhitespace else {
-            showAlert(title: kNotificationTitle, message: kMsgEmptyPassword) {
+            showAlert(title: kErrorTitle, message: kMsgEmptyPassword) {
                 self.tfPassword.becomeFirstResponder()
             }
             return
         }
         
         guard password.count >= 6 else {
-            showAlert(title: kNotificationTitle, message: kMsgMinimumPasswordLength) {
+            showAlert(title: kErrorTitle, message: kMsgMinimumPasswordLength) {
                 self.tfPassword.becomeFirstResponder()
             }
             return
         }
         
         guard let confirmNewPassword = tfConfirmPassword.text, !confirmNewPassword.isEmpty else {
-            showAlert(title: kNotificationTitle, message: kMsgEmptyConfirmPassword) {
+            showAlert(title: kErrorTitle, message: kMsgEmptyConfirmPassword) {
                 self.tfConfirmPassword.becomeFirstResponder()
             }
             return
         }
         
         guard password == confirmNewPassword else {
-            showAlert(title: kNotificationTitle, message: kMsgEnterPassword) {
+            showAlert(title: kErrorTitle, message: kMsgEnterPassword) {
                 self.tfConfirmPassword.becomeFirstResponder()
             }
             return
@@ -266,7 +266,7 @@ class SignInViewController: UIViewController {
             }
             guard error == nil else{
                 Utils.shared.hideLoading()
-                strongSelf.showAlert(title: kNotificationTitle, message: error?.localizedDescription)
+                strongSelf.showAlert(title: kErrorTitle, message: error?.localizedDescription)
                 return
             }
             if let user = result?.user {
@@ -279,20 +279,6 @@ class SignInViewController: UIViewController {
             
             
         }
-
-        
-//        viewModel.register(parameters: param) {[weak self] success, data, message in
-//            Utils.shared.hideLoading()
-//            guard let self = self else { return }
-//            if success {
-//                let vc = VerifyPhoneViewController()
-//                vc.phoneNumber = "\(phoneNumber)"
-//                vc.typeVerify = .register
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }else{
-//                self.showAlert(title: kNotificationTitle, message: message)
-//            }
-//        }
         
     }
     
@@ -321,7 +307,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func didSelectShowHidePassword(_ sender: UIButton) {
-//        self.tfPassword.isSecureTextEntry = !self.tfPassword.isSecureTextEntry
+        self.tfPassword.isSecureTextEntry = !self.tfPassword.isSecureTextEntry
         sender.setTitle(self.tfPassword.isSecureTextEntry == true ? "Show" : "Hidden", for: .normal)
     }
     

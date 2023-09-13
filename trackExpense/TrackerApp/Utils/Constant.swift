@@ -78,3 +78,4 @@ let APP_CLEAN_COLOR = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
 let IMG_LOGO_PLACEHOLDER = UIImage(named: "ic_placeholder_logo")
 
 let MAX_PRICE : Double = 10000000// 9999999
+let MAX_STRING = 20

@@ -59,6 +59,8 @@ class SettingView: UIView, UITextFieldDelegate {
         
         self.tfPrice.delegate = self
         self.tfDate.delegate = self
+        self.tfTille.delegate = self
+        self.tfLocation.delegate = self
         tfCategory.addTarget(self, action: #selector(categoryTextFieldTapped), for: .touchDown)
         self.frame = topView.bounds
         self.alpha = 0
@@ -78,6 +80,7 @@ class SettingView: UIView, UITextFieldDelegate {
             self.tfDescription.text = editExpense.notes
             self.tfPrice.text = "\(editExpense.amount)"
             self.tfCategory.text = editExpense.category
+            self.tfLocation.text = editExpense.address
             btnAction.setTitle("Edit", for: .normal)
             //self.tfDate.text = editExpense.
         }
@@ -186,6 +189,7 @@ class SettingView: UIView, UITextFieldDelegate {
             return
         }
         let notes = tfDescription.text
+        let location = tfLocation.text
         guard let category = tfCategory.text , !category.isEmpty else{
             // Handle invalid or missing data in the text fields
             vc.showAlert(title: kErrorTitle, message: "Invalid or missing data. Please check all fields.")
@@ -196,7 +200,7 @@ class SettingView: UIView, UITextFieldDelegate {
         let date = dateFormatter.date(from: dateText) ?? Date()
         
         if let editExpense = editExpense{
-            vm.updateExpense(expenseId: editExpense.id, title: title, amount: amount, category: tfCategory.text ?? "", date: date, notes: notes) { error in
+            vm.updateExpense(expenseId: editExpense.id, title: title, amount: amount, category: tfCategory.text ?? "", date: date, address: location, notes: notes) { error in
                 if let error = error {
                     // Handle the error
                     vc.showAlert(title: kNotificationTitle, message: error.localizedDescription)
@@ -207,7 +211,7 @@ class SettingView: UIView, UITextFieldDelegate {
                 }
             }
         }else{
-            vm.createExpense(title: title, amount: amount, category: tfCategory.text ?? "", date: date, notes: notes) { error in
+            vm.createExpense(title: title, amount: amount, category: tfCategory.text ?? "", date: date, address: location, notes: notes) { error in
                 if let error = error {
                     // Handle the error
                     vc.showAlert(title: kNotificationTitle, message: error.localizedDescription)
@@ -233,7 +237,14 @@ class SettingView: UIView, UITextFieldDelegate {
             currentString.replacingCharacters(in: range, with: string) as NSString
         if textField == tfPrice {
             return (newString as String).isValidDecimal(maxValue: MAX_PRICE)
-        }else {
+        }else if textField == tfTille || textField == tfLocation{
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            return updatedText.count <= MAX_STRING
+        }
+        
+        else {
             return false
         }
     }

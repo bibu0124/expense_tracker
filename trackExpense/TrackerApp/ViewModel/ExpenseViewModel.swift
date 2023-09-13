@@ -18,7 +18,7 @@ class ExpenseViewModel: NSObject {
         self.userId = Token().userId ?? ""
     }
     
-    func createExpense(title: String, amount: Double, category: String, date: Date, notes: String?, completion: @escaping (Error?) -> Void) {
+    func createExpense(title: String, amount: Double, category: String, date: Date, address: String?, notes: String?, completion: @escaping (Error?) -> Void) {
         let userRef = usersCollection.document(userId)
         let expensesCollection = userRef.collection("expenses")
         
@@ -29,6 +29,7 @@ class ExpenseViewModel: NSObject {
             "amount": amount,
             "category": category,
             "date": Timestamp(date: date),
+            "address": address,
             "notes": notes ?? ""
         ]
         
@@ -43,7 +44,7 @@ class ExpenseViewModel: NSObject {
         }
     }
     
-    func updateExpense(expenseId: String, title: String, amount: Double, category: String, date: Date, notes: String?, completion: @escaping (Error?) -> Void) {
+    func updateExpense(expenseId: String, title: String, amount: Double, category: String, date: Date, address: String?, notes: String?, completion: @escaping (Error?) -> Void) {
         let userRef = usersCollection.document(userId)
         let expensesCollection = userRef.collection("expenses")
         
@@ -54,6 +55,7 @@ class ExpenseViewModel: NSObject {
             "amount": amount,
             "category": category,
             "date": Timestamp(date: date),
+            "address": address,
             "notes": notes ?? ""
         ]
         
@@ -102,11 +104,12 @@ class ExpenseViewModel: NSObject {
                 if let title = document["title"] as? String,
                    let amount = document["amount"] as? Double,
                    let category = document["category"] as? String,
+                   let address = document["address"] as? String,
                    let dateTimestamp = document["date"] as? Timestamp,
                    let notes = document["notes"] as? String {
                     
                     let date = dateTimestamp.dateValue()
-                    let expense = Expense(id: document.documentID, title: title, amount: amount, category: category, date: date, notes: notes)
+                    let expense = Expense(id: document.documentID, title: title, amount: amount, category: category, date: date, address: address, notes: notes)
                     expenses.append(expense)
                 }
             }
@@ -133,10 +136,11 @@ class ExpenseViewModel: NSObject {
                    let amount = document["amount"] as? Double,
                    let category = document["category"] as? String,
                    let dateTimestamp = document["date"] as? Timestamp,
+                   let address = document["address"] as? String,
                    let notes = document["notes"] as? String {
                     
                     let date = dateTimestamp.dateValue()
-                    let expense = Expense(id: document.documentID, title: title, amount: amount, category: category, date: date, notes: notes)
+                    let expense = Expense(id: document.documentID, title: title, amount: amount, category: category, date: date, address: address, notes: notes)
                     expenses.append(expense)
                 }
             }

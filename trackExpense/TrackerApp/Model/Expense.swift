@@ -13,5 +13,6 @@ struct Expense {
     let amount: Double
     let category: String
     let date: Date
+    let address: String?
     let notes: String?
 }
